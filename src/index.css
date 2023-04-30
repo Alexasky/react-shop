@@ -11,3 +11,106 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+nav {
+	padding: 0 1.5rem;
+}
+
+main {
+	min-height: calc(100vh - 64px - 70px);
+	padding: 1.5rem 0;
+}
+
+.items {
+	display: grid;
+	grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+	gap: 1rem;
+}
+
+.card {
+	display: flex;
+	flex-direction: column;
+}
+.card-action {
+	flex-grow: 1;
+}
+
+.cart {
+	display: flex;
+	align-items: center;
+	position: fixed;
+	bottom: 1.8rem;
+	right: 1.8rem;
+	padding: 0.5rem;
+
+	z-index: 5;
+	cursor: pointer;
+}
+
+.cart-list {
+	position: fixed;
+	top: 50%;
+	left: 50%;
+	transform: translate(-50%, -50%);	
+	width: 60rem;
+	max-width: 95%;
+	background-color: white;
+	box-shadow: 0 0 0 100000px rgba(0, 0, 0, .8);
+	animation: show 500ms ease-in-out;
+}
+
+.btn-delete {
+	cursor: pointer;
+}
+
+.price-item {
+	margin-left: 0.5rem;
+}
+
+.btn-quantity {
+	width: 20px;
+	height: 20px;
+	margin: 0 5px;
+	padding: 0;
+	font-size: 20px;		
+}
+
+.checkout-item {
+	display: flex;
+	justify-content: space-between;
+	align-items: center;
+}
+
+#toast-container {
+	top: 3rem !important;
+	animation: fade-in 250ms ease-in-out;
+}
+
+
+@media screen and (min-width: 768px) {
+	.cart {
+			top: 6rem;
+			bottom: unset;
+		}
+}
+@keyframes show {
+	from {
+		top: 70%;
+		opacity: 0;
+	}
+	to {
+		top: 50%;
+		opacity: 1;
+	}
+}
+
+@keyframes fade-in {
+	from {
+		opacity: 0;
+		transform: translateY(2rem);
+	}
+	to {
+		opacity: 1;
+		transform: translateY(0);
+	}
+}
