@@ -1,13 +1,13 @@
+import { useContext } from 'react';
+import { ShopContext } from '../context';
+
 function CartItem(props) {
     const {
-        id,
-        name,
-        price,
-        quantity,
-        removeItem = Function.prototype,
+        removeFromCart = Function.prototype,
         incQuantity = Function.prototype,
         decQuantity = Function.prototype,
-    } = props;
+    } = useContext(ShopContext);
+    const { id, name, price, quantity } = props;
     return (
         <li className='collection-item '>
             {name}
@@ -30,7 +30,7 @@ function CartItem(props) {
 
             <span
                 className='secondary-content btn-delete'
-                onClick={() => removeItem(id)}
+                onClick={() => removeFromCart(id)}
             >
                 <i className='material-icons'>close</i>
             </span>

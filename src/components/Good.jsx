@@ -1,11 +1,14 @@
-function Item(props) {
+import { useContext } from 'react';
+import { ShopContext } from '../context';
+
+function Good(props) {
+    const { addToCart = Function.prototype } = useContext(ShopContext);
     const {
         mainId: id,
         displayName: name,
         displayDescription: description,
         displayAssets: [{ full_background: image }],
         price: { regularPrice: price },
-        addToCart = Function.prototype,
     } = props;
 
     return (
@@ -32,4 +35,4 @@ function Item(props) {
     );
 }
 
-export { Item };
+export { Good };
